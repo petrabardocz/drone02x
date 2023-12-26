@@ -9,7 +9,7 @@ data_fp = os.path.join(current_directory, "data")
 if not os.path.exists(data_fp):
     os.makedirs(data_fp)
 
-
+#%%
 # Specify the surface types which we the data needs to be gathered for. Retrieve this from the URL of the page where the raw data is stored.
 sampletypes = ["distd_wn", "oakface", "clybrkcm", "sndpgaz1" ]
 
@@ -42,8 +42,26 @@ for sample in sampletypes:
     # Create a DataFrame
     columns = rows[0].split()  # Use the header row as column names
     df = pd.DataFrame(data, columns=columns)
+    df = df.rename(columns={'#X(Micrometer)': 'x1', '#X(cm-1)': 'x2', '#Yvalue': f"y_{sample}"})
+
 
     # Export dataframe
     output_fp = os.path.join(data_fp, sample + ".csv")
     df.to_csv(output_fp, index = False)
     print(f"{sample} data written to file")
+
+#%% Merge the dataframes into one
+combined_df = pd.read_csv("data/oakface.csv")
+
+for filename in os.listdir(data_fp):
+    if filename != "oakface.csv":
+        fp = os.path.join(data_fp, filename)
+        df = pd.read_csv(fp)
+        ycol = df.iloc[:,2]
+        combined_df = pd.concat([combined_df, ycol], axis = 1)
+
+combined_df_flip = combined_df.iloc[::-1]
+
+combined_df.to_csv("data/emisdata.csv")
+
+# %%

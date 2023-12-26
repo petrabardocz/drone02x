@@ -7,6 +7,8 @@ Contains the input .csv files with the emissivity values per sample type. The em
 ## datascraping.py
 Scrapes input data from the MODIS UCSB Emissivity Library (https://www.icess.ucsb.edu/modis/EMIS/html/em.html) and exports it as .csv into /data folder. 
 
+Compiles all the different samples into a single dataframe and exports it as data/emisdata.csv
+
 **Since data folder already contains the input files there is no need to run this first!**
 
 ## if2.js

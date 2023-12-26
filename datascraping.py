@@ -62,6 +62,6 @@ for filename in os.listdir(data_fp):
 
 combined_df_flip = combined_df.iloc[::-1]
 
-combined_df.to_csv("data/emisdata.csv")
+combined_df_flip.to_csv("data/emisdata.csv")
 
 # %%

@@ -1,8 +1,11 @@
 # drone02x
 Scripts for interactive graphs for DRONE02x
 
+## data
+Contains the input .csv files with the eissivity values per sample type. The emisdata.csv file contains the comiled information and gets fed into the actual JS graph.
+
 ## datascraping.py
-Scrapes input data from the MODIS UCSB Emissivity Library (https://www.icess.ucsb.edu/modis/EMIS/html/em.html) and exports it as .csv into /data folder. Run this first to get data.
+Scrapes input data from the MODIS UCSB Emissivity Library (https://www.icess.ucsb.edu/modis/EMIS/html/em.html) and exports it as .csv into /data folder. **Since data folder already contains the input files there is no need to run this first.**
 
 ## if2.js
 Interactive graph which displays the emissivity of different surfaces. 

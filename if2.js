@@ -1,75 +1,85 @@
-// Interactive feature 2 - Emissivity graphs
+d3.csv("data/emisdata.csv").then(makeChart);
 
-document.addEventListener('DOMContentLoaded', function () {
-    const ctx = document.getElementById('line-chart');
-  
-    // Sample data
-    const labels = Array.from({ length: 14 }, (_, index) => index);
-    const grassData = Array.from({ length: labels.length }, () => Math.random());
-    const oakData = Array.from({ length: labels.length }, () => Math.random());
-    const waterData = Array.from({ length: labels.length }, () => Math.random());
-
-    
-    const data = {
-      labels: labels,
-      datasets: [
-        {
-            label: 'Grass',
-            data: grassData,
-            borderColor: 'green',
-            backgroundColor: 'rgba(255, 0.5, 0, 0)',
-        },
-        {
-            label: 'Oak',
-            data: oakData,
-            borderColor: 'red',
-            backgroundColor: 'rgba(255, 0, 0, 0.5)',
-          },
-          {
-            label: 'Water',
-            data: waterData,
-            borderColor: 'blue',
-            backgroundColor: 'rgba(255, 0, 0.5, 0)',
-          },
-              
-      ],
-    };
-
-    const config = {  
-        type: 'line',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                  position: 'top',
-                },
-                title: {
-                  display: true,
-                  text: 'Interactive feature 2',
-                },
-              },
-              scales: {
-                x: {
-                  display: true,
-                  title: {
-                    display: true,
-                    text: 'Wavelength', // X-axis label
-                  },
-                },
-                y: {
-                  display: true,
-                  title: {
-                    display: true,
-                    text: 'Emissivity', // Y-axis label
-                  },
-                },
-              },
-          
-        }
-      }
-
-
-    new Chart(ctx, config);
+// Plot the data with Chart.js
+function makeChart(emisdata) {
+  var wlLabels = emisdata.map(function (d) {
+    return d.x1;
   });
-  
+  var oakData = emisdata.map(function (d) {
+    return d.y_oakface;
+  });
+  var brickData = emisdata.map(function (d) {
+    return d.y_clybrkcm;
+  });
+  var soilData = emisdata.map(function (d) {
+    return d.y_sndpgaz1;
+  });
+  var waterData = emisdata.map(function (d) {
+    return d.y_distd_wn;
+  });
+
+  const data = {
+    labels: wlLabels,
+    datasets: [
+      {
+        label: "Oak leaf",
+        data: oakData,
+        borderColor: "green",
+        backgroundColor: 'rgba(0, 77, 0, 0.5)',
+      },
+      {
+        label: "Clay brick",
+        data: brickData,
+        borderColor: "red",
+        backgroundColor: 'rgba(255, 0, 0, 0.5)', 
+      },
+      {
+        label: "Sandy soil",
+        data: soilData,
+        borderColor: 'rgba(139, 69, 19, 1)',
+        backgroundColor: 'rgba(139, 69, 19, 0.5)', 
+      },
+      {
+        label: "Distilled water",
+        data: waterData,
+        borderColor: 'blue',
+        backgroundColor: 'rgba(0, 0, 255, 0.5)', 
+      }
+    ]
+  }
+  const config =  {
+    type: "line",
+    data: data,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Interactive feature 2',
+            },
+          },
+          scales: {
+            x: {
+              display: true,
+              title: {
+                display: true,
+                text: 'Wavelength (micrometer)', // X-axis label
+              },
+            },
+            y: {
+              display: true,
+              title: {
+                display: true,
+                text: 'Emissivity', // Y-axis label
+              },
+              suggestedMin: 0,
+              suggestedMax: 1,
+            },
+          },
+      
+    }
+}
+  var chart = new Chart("myChart", config)}

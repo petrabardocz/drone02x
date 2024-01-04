@@ -1,3 +1,4 @@
+#%%
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -49,19 +50,3 @@ for sample in sampletypes:
     output_fp = os.path.join(data_fp, sample + ".csv")
     df.to_csv(output_fp, index = False)
     print(f"{sample} data written to file")
-
-#%% Merge the dataframes into one
-combined_df = pd.read_csv("data/oakface.csv")
-
-for filename in os.listdir(data_fp):
-    if filename != "oakface.csv":
-        fp = os.path.join(data_fp, filename)
-        df = pd.read_csv(fp)
-        ycol = df.iloc[:,2]
-        combined_df = pd.concat([combined_df, ycol], axis = 1)
-
-combined_df_flip = combined_df.iloc[::-1]
-
-combined_df_flip.to_csv("data/emisdata.csv")
-
-# %%

@@ -1,4 +1,5 @@
-d3.csv("data/emisdata.csv").then(makeChart);
+d3.csv("data/emisdata2.csv").then(makeChart);
+
 
 // Plot the data with Chart.js
 function makeChart(emisdata) {
@@ -26,24 +27,28 @@ function makeChart(emisdata) {
         data: oakData,
         borderColor: "green",
         backgroundColor: 'rgba(0, 77, 0, 0.5)',
+        pointStyle: false,
       },
       {
         label: "Clay brick",
         data: brickData,
         borderColor: "red",
         backgroundColor: 'rgba(255, 0, 0, 0.5)', 
+        pointStyle: false,
       },
       {
         label: "Sandy soil",
         data: soilData,
         borderColor: 'rgba(139, 69, 19, 1)',
         backgroundColor: 'rgba(139, 69, 19, 0.5)', 
+        pointStyle: false,
       },
       {
         label: "Distilled water",
         data: waterData,
         borderColor: 'blue',
         backgroundColor: 'rgba(0, 0, 255, 0.5)', 
+        pointStyle: false,
       }
     ]
   }
@@ -75,7 +80,7 @@ function makeChart(emisdata) {
                 display: true,
                 text: 'Emissivity', // Y-axis label
               },
-              suggestedMin: 0,
+              
               suggestedMax: 1,
             },
           },

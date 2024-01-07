@@ -19,7 +19,7 @@ Scrapes input data from the MODIS UCSB Emissivity Library (https://www.icess.ucs
 
 ## dataediting.ipynb
 Compiles all the different samples into a single dataframe and exports it as data/emisdata.csv \
-Tweaks dataset so the rows where distilled water is NaN are dropped and reorders dataset in ascending order with regards to wavelength.
+Tweaks dataset so the rows where distilled water is NaN are dropped and reorders dataset in ascending order with regards to wavelength and exports it as data/emisdata2.csv
 
 **NOTE: Since data folder already contains the input files there is no need to run this first!**
 

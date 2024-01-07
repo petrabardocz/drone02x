@@ -101,11 +101,6 @@ function makeChart(emisdata) {
             text: 'Emissivity', // Y-axis label
           },
           suggestedMax: 1,
-          ticks: {
-            callback: function (value, index, values){
-              return value.toFixed(2);
-            }
-          }
         },
       },
     },

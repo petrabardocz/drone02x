@@ -1,5 +1,8 @@
-d3.csv("data/emisdata2.csv").then(makeChart);
+// for dev:
+// d3.csv("data/emisdata2.csv").then(makeChart); // for edx comment this line and uncomment next one
 
+// for edx:
+d3.csv("https://edge.edx.org/asset-v1:WageningenUniversityResearch+WUR102+3T2020+type@asset+block@emisdata2.csv").then(makeChart); 
 
 // Plot the data with Chart.js
 function makeChart(emisdata) {
@@ -76,7 +79,7 @@ function makeChart(emisdata) {
           },
           ticks: {
             stepSize: 1,
-            min: Math.min(...wlLabels), // Adjusted minimum value
+            min: Math.min(...wlLabels),
             max: Math.max(...wlLabels),
             callback: function (value, index, values) {
               // Display labels only between 4 and 14
@@ -98,6 +101,11 @@ function makeChart(emisdata) {
             text: 'Emissivity', // Y-axis label
           },
           suggestedMax: 1,
+          ticks: {
+            callback: function (value, index, values){
+              return value.toFixed(2);
+            }
+          }
         },
       },
     },

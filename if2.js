@@ -4,19 +4,19 @@ d3.csv("data/emisdata2.csv").then(makeChart);
 // Plot the data with Chart.js
 function makeChart(emisdata) {
   var wlLabels = emisdata.map(function (d) {
-    return d.x1;
+    return parseFloat(d.x1); // Ensure x-axis values are parsed as floats
   });
   var oakData = emisdata.map(function (d) {
-    return d.y_oakface;
+    return parseFloat(d.y_oakface); // Ensure y-axis values are parsed as floats
   });
   var brickData = emisdata.map(function (d) {
-    return d.y_clybrkcm;
+    return parseFloat(d.y_clybrkcm); // Ensure y-axis values are parsed as floats
   });
   var soilData = emisdata.map(function (d) {
-    return d.y_sndpgaz1;
+    return parseFloat(d.y_sndpgaz1); // Ensure y-axis values are parsed as floats
   });
   var waterData = emisdata.map(function (d) {
-    return d.y_distd_wn;
+    return parseFloat(d.y_distd_wn); // Ensure y-axis values are parsed as floats
   });
 
   const data = {
@@ -51,47 +51,55 @@ function makeChart(emisdata) {
         pointStyle: false,
       }
     ]
-  }
-  const config =  {
+  };
+
+  const config = {
     type: "line",
     data: data,
     options: {
-        responsive: true,
-        plugins: {
-            legend: {
-              position: 'top',
-            },
-            title: {
-              display: true,
-              text: 'Interactive feature 2',
-            },
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'Interactive feature 2',
+        },
+      },
+      scales: {
+        x: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Wavelength (micrometer)', // X-axis label
           },
-          scales: {
-            x: {
-              display: true,
-              title: {
-                display: true,
-                text: 'Wavelength (micrometer)', // X-axis label
-              },
-              ticks:{
-                stepSize: 1,
-                min: 2,
-                max: 15,
-                precision: 0,
-
+          ticks: {
+            stepSize: 1,
+            min: 3.6, // Start from 3.6
+            max: 14.5, // End at 14.5
+            callback: function (value, index, values) {
+              // Display labels only between 4 and 14
+              if (value >= 4 && value <= 14) {
+                return Math.round(value);
+              } else {
+                return '';
               }
             },
-            y: {
-              display: true,
-              title: {
-                display: true,
-                text: 'Emissivity', // Y-axis label
-              },
-              
-              suggestedMax: 1,
-            },
-          },
-      
-    }
+          },
+          type: 'linear', // Set the x-axis type to linear
+        },
+        y: {
+          display: true,
+          title: {
+            display: true,
+            text: 'Emissivity', // Y-axis label
+          },
+          suggestedMax: 1,
+        },
+      },
+    },
+  };
+
+  var chart = new Chart("myChart", config);
 }
-  var chart = new Chart("myChart", config)}

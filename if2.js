@@ -73,6 +73,13 @@ function makeChart(emisdata) {
                 display: true,
                 text: 'Wavelength (micrometer)', // X-axis label
               },
+              ticks:{
+                stepSize: 1,
+                min: 2,
+                max: 15,
+                precision: 0,
+
+              }
             },
             y: {
               display: true,

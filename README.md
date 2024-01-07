@@ -14,11 +14,13 @@ emisdata2.csv file contains the tweaked data which gets fed into the actual JS g
 
 ## datascraping.py
 Scrapes input data from the MODIS UCSB Emissivity Library (https://www.icess.ucsb.edu/modis/EMIS/html/em.html) and exports it as .csv into /data folder. 
+
 **NOTE: Since data folder already contains the input files there is no need to run this first!**
 
 ## dataediting.ipynb
 Compiles all the different samples into a single dataframe and exports it as data/emisdata.csv
 Tweaks dataset so the rows where distilled water is NaN are dropped and reorders dataset in ascending order with regards to wavelength.
+
 **NOTE: Since data folder already contains the input files there is no need to run this first!**
 
 ## if2.js

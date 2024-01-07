@@ -76,8 +76,8 @@ function makeChart(emisdata) {
           },
           ticks: {
             stepSize: 1,
-            min: 3.6, // Start from 3.6
-            max: 14.5, // End at 14.5
+            min: Math.min(...wlLabels), // Adjusted minimum value
+            max: Math.max(...wlLabels),
             callback: function (value, index, values) {
               // Display labels only between 4 and 14
               if (value >= 4 && value <= 14) {
@@ -88,6 +88,8 @@ function makeChart(emisdata) {
             },
           },
           type: 'linear', // Set the x-axis type to linear
+          min: Math.min(...wlLabels) - 0.01, // Adjusted minimum value
+          max: Math.max(...wlLabels) + 0.01,
         },
         y: {
           display: true,

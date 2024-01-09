@@ -78,21 +78,12 @@ function makeChart(emisdata) {
             text: 'Wavelength (micrometer)', // X-axis label
           },
           ticks: {
-            stepSize: 1,
-            min: Math.min(...wlLabels),
-            max: Math.max(...wlLabels),
-            callback: function (value, index, values) {
-              // Display labels only between 4 and 14
-              if (value >= 4 && value <= 14) {
-                return Math.round(value);
-              } else {
-                return '';
-              }
-            },
+            stepSize: 0.5, // Set the step size to 1
           },
-          type: 'linear', // Set the x-axis type to linear
-          min: Math.min(...wlLabels) - 0.01, // Adjusted minimum value
-          max: Math.max(...wlLabels) + 0.01,
+          type: 'linear',
+          min: 3.5,
+          max: 14,
+          position: 'bottom'
         },
         y: {
           display: true,

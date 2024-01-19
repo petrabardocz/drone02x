@@ -10,7 +10,7 @@ function makeChart(emisdata) {
   const oakCol = 'rgba(93, 168, 153)'
   const brickCol = 'rgba(159, 74, 150)'
   const soilCol = 'rgba(220, 205, 125)'
-  const waterCol = 'rgba(46, 37, 133)'
+  const waterCol = 'rgba(0, 0, 128)'
 
   const data = {
     labels: wlLabels,
@@ -57,7 +57,7 @@ function makeChart(emisdata) {
         },
         title: {
           display: true,
-          text: 'Interactive feature 2',
+          text: 'Surface emissivities',
         },
       },
       scales: {

@@ -10,23 +10,24 @@ body {
   
   #sliderContainer {
     background: url('data/image.png') center center no-repeat;
-    background-size: cover;
+    background-size: contain; /* or 'cover' depending on your preference */
     position: relative;
-    height: 50vh;
+    height: 400px;
+    width: 600px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align sliders to the bottom */
-    align-items: flex-end; /* Align sliders to the right */
+    justify-content: flex-end;
+    align-items: flex-end;
     padding: 20px;
   }
-  
-  label {
-    margin-right: 10px; /* Adjust the spacing between label and value */
-  }
-  
-  span {
-    margin-right: 5px; /* Adjust the spacing between value and slider */
-  }
+
+label {
+  margin-right: 10px; /* Adjust the spacing between label and value */
+}
+
+span {
+  margin-right: 5px; /* Adjust the spacing between value and slider */
+}
 
 /* slider track */
   input[type="range"] {

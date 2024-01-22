@@ -42,8 +42,16 @@ function calculatePlantValue(temperature, emissivity) {
 
 function displayValues(pavementValue, plantValue) {
   const pavementDisplay = document.getElementById('pavementDisplay');
-  pavementDisplay.textContent = `Pavement Value: ${pavementValue.toFixed(2)}`;
+  setPosition(pavementDisplay, 119, 450); // Adjust coordinates as needed
+  pavementDisplay.textContent = `${pavementValue.toFixed(1)}`;
 
   const plantDisplay = document.getElementById('plantDisplay');
-  plantDisplay.textContent = `Plant Value: ${plantValue.toFixed(2)}`;
+  setPosition(plantDisplay, 119, 365); // Adjust coordinates as needed
+  plantDisplay.textContent = `${plantValue.toFixed(1)}`;
+}
+
+function setPosition(element, top, left) {
+  element.style.position = 'absolute';
+  element.style.top = `${top}px`;
+  element.style.left = `${left}px`;
 }

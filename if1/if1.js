@@ -36,7 +36,7 @@ function calculatePavementValue(temperature, emissivity) {
 function calculatePlantValue(temperature, emissivity) {
   const rad = Math.pow(0.98, 0.25) * (temperature + 273.15);
   const IT = (rad / Math.pow(emissivity, 0.25)) - 273.15;
-  return IT; // Adjust as needed// Adjust as needed
+  return IT; 
 }
 
 function displayValues(pavementValue, plantValue) {

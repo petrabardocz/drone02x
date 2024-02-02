@@ -40,24 +40,10 @@ function calculatePlantValue(temperature, emissivity) {
 }
 
 function displayValues(pavementValue, plantValue) {
-
-  const fontandsize = 'bold 18px Arial' // Define how you want the displayed values in the boxes to look
-
   const plantDisplay = document.getElementById('plantDisplay');
-  setPosition(plantDisplay, 115, 365); // Adjust coordinates as needed
   plantDisplay.textContent = `${plantValue.toFixed(1)}`;
-  plantDisplay.style.font = fontandsize;
 
   const pavementDisplay = document.getElementById('pavementDisplay');
-  setPosition(pavementDisplay, 115, 455); // Adjust coordinates as needed
   pavementDisplay.textContent = `${pavementValue.toFixed(1)}`;
-  pavementDisplay.style.font = fontandsize;
-
-
 }
 
-function setPosition(element, top, left) {
-  element.style.position = 'absolute';
-  element.style.top = `${top}px`;
-  element.style.left = `${left}px`;
-}

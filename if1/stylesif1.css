@@ -81,3 +81,21 @@ input[type="range"]::-moz-range-thumb {
   /* Remove the default appearance */
   border: none;
 }
+
+#plantDisplay,
+#pavementDisplay {
+  position: absolute;
+  font: bold 18px Arial;
+}
+
+#plantDisplay {
+  top: 115px;
+  left: 365px;
+  color: rgb(19, 20, 19);
+}
+
+#pavementDisplay {
+  top: 115px;
+  left: 455px;
+  color: rgb(19, 20, 19);
+}

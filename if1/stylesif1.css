@@ -9,27 +9,41 @@ body {
 }
 
 #sliderContainer {
-  /* background: url('data/image.png') center center no-repeat; */
-  background: url('https://edge.edx.org/asset-v1:WageningenUniversityResearch+WUR102+3T2020+type@asset+block@image.png') center center no-repeat;
-  background-size: contain; /* or 'cover' depending on your preference */
+  background: url('data/image2.png') center center no-repeat;
+  background-size: contain;
   position: relative;
   height: 400px;
   width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   padding: 20px;
 }
 
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 20px; /* Adjust spacing between slider wrappers */
+  margin-left: 250px; /* Move sliders to the right with respect to background image*/
+}
+
 label {
-margin-right: 10px; /* Adjust the spacing between label and value */
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333; /* Adjust text color */
 }
 
 span {
-margin-right: 5px; /* Adjust the spacing between value and slider */
+  font-size: 18px;
+  color: #333; /* Adjust text color */
 }
 
+input[type="range"] {
+  width: 100%; /* Make the slider take the full width of its container */
+  margin-top: 5px; /* Adjust spacing between span and slider */
+}
 /* slider track */
 input[type="range"] {
   /* Set the color for the slider track */

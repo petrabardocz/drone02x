@@ -8,7 +8,7 @@ Interactive calculator tool to display how thermal image values can differ depen
 Script to retrieve input values from slider and calculate output based of predefined formula.
 
 ### index1.html
-HTML part, needs to be out into EdX html editor.
+HTML part, needs to be put into EdX html editor.
 
 ### stylesif1.css
 Styling, for EdX integration this needs to go between <style> tags and the link to the background image replaced with studio link to image.

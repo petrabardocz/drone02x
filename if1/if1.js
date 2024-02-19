@@ -14,6 +14,7 @@ emissivityValue.textContent = emissivitySlider.value;
 temperatureSlider.addEventListener('input', updateValues);
 emissivitySlider.addEventListener('input', updateValues);
 
+
 function updateValues() {
   temperatureValue.textContent = temperatureSlider.value;
   emissivityValue.textContent = emissivitySlider.value;

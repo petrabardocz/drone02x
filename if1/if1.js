@@ -15,15 +15,32 @@ temperatureSlider.addEventListener('input', updateValues);
 emissivitySlider.addEventListener('input', updateValues);
 
 
+
+// Initialize the displayed values with two decimal places
+temperatureValue.textContent = parseFloat(temperatureSlider.value).toFixed(1);
+emissivityValue.textContent = parseFloat(emissivitySlider.value).toFixed(2);
+
+// Update values when sliders are moved
+temperatureSlider.addEventListener('input', updateValues);
+emissivitySlider.addEventListener('input', updateValues);
+
+// Call updateValues function to display results with default values
+updateValues();
+
 function updateValues() {
-  temperatureValue.textContent = temperatureSlider.value;
-  emissivityValue.textContent = emissivitySlider.value;
+  // Get temperature and emissivity values from sliders
+  const temperature = parseFloat(temperatureSlider.value);
+  const emissivity = parseFloat(emissivitySlider.value);
+
+  // Update the displayed values with 2 decimal places
+  temperatureValue.textContent = temperature.toFixed(1);
+  emissivityValue.textContent = emissivity.toFixed(2);
 
   // Calculate values based on the combination of temperature and emissivity
-  const pavementValue = calculatePavementValue(parseFloat(temperatureSlider.value), parseFloat(emissivitySlider.value));
-  const plantValue = calculatePlantValue(parseFloat(temperatureSlider.value), parseFloat(emissivitySlider.value));
+  const pavementValue = calculatePavementValue(temperature, emissivity);
+  const plantValue = calculatePlantValue(temperature, emissivity);
 
-  // Display the calculated values
+  // Display the calculated values without modifying their underlying data type
   displayValues(pavementValue, plantValue);
 }
 
@@ -41,10 +58,11 @@ function calculatePlantValue(temperature, emissivity) {
 }
 
 function displayValues(pavementValue, plantValue) {
+  // Display the calculated values without modifying their underlying data type
   const plantDisplay = document.getElementById('plantDisplay');
-  plantDisplay.textContent = `${plantValue.toFixed(1)}`;
+  plantDisplay.textContent = plantValue.toFixed(1); // Display with 1 decimal place
 
   const pavementDisplay = document.getElementById('pavementDisplay');
-  pavementDisplay.textContent = `${pavementValue.toFixed(1)}`;
+  pavementDisplay.textContent = pavementValue.toFixed(1); // Display with 1 decimal place
 }
 

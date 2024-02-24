@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Verdana, sans-serif;
   text-align: center;
   margin: 50px;
 }
@@ -9,7 +9,7 @@ body {
 }
 
 #sliderContainer {
-  background: url('data/image3.png') center center no-repeat;
+  background: url('data/image7.png') center center no-repeat;
   background-size: contain;
   position: relative;
   height: 400px;
@@ -19,7 +19,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 20px;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
 }
 
 .slider-wrapper {
@@ -87,17 +87,18 @@ input[type="range"]::-moz-range-thumb {
 #plantDisplay,
 #pavementDisplay {
   position: absolute;
-  font: bold 18px Arial;
+  font: bold 19px Verdana;
 }
 
 #plantDisplay {
-  top: 115px;
-  left: 420px;
+  top: 146px;
+  left: 362px;
   color: rgb(19, 20, 19);
 }
 
 #pavementDisplay {
-  top: 115px;
-  left: 530px;
+  top: 146px;
+  left: 457px;
   color: rgb(19, 20, 19);
 }
+

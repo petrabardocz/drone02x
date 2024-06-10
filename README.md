@@ -1,5 +1,5 @@
 # drone02x
-Data and scripts for interactive features (if) in DRONE02x MOOCC.
+Data and scripts for interactive features (if) in DRONE02x MOOC.
 
 ## if1
 Interactive calculator tool to display how thermal image values can differ depending on surface temperature and camera emissivity.
